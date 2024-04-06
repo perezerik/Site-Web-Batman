@@ -1,0 +1,362 @@
+/*Animations*/
+/* Scale logo */
+@keyframes scaleLogo {
+  from{
+    transform: scale(0%);
+  }
+  to{
+    transform: scale(100%);
+  }
+}
+
+ #logo{
+  animation: scaleLogo 4s infinite;
+ }
+
+ /* Couleur du menu */
+@keyframes couleurMenu {
+  from{
+    background:rgba(0,0,0,.5) ;
+  }
+  to{
+    background:rgba(255, 0, 0, 0.5);
+  }
+}
+ nav{
+  animation: couleurMenu 4s infinite;
+ }
+
+ /*Font du titre principal h1 */
+ @keyframes fontH1 {
+  0%{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  50%{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  100%{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+ }
+ h1{
+  animation: fontH1 2s infinite;
+ }
+
+ /*Rotation et scale de toutes les images dans les conteneurs */
+ @keyframes scaleEtRotationImages{
+  0%{
+    transform: rotate(0deg) scale(100%);
+  }
+  25%{
+    transform: rotate(-360deg) scale(0%);
+  }
+  50%{
+    transform: rotate(-360deg) scale(0%);
+  }
+  75%{
+    transform: rotate(360deg) scale(100%);
+  }
+  100%{
+    transform: rotate(360deg) scale(100%);
+  }
+}
+
+.images{
+  animation: scaleEtRotationImages 8s infinite;
+}
+
+/* code version mobile */
+* {
+  margin: 0;
+  padding: 0;
+}
+@media (width<=500px) {
+  body {
+    background-image: url("images/gotham.jpg");
+    background-size: 500px 1300px;
+    color: white;
+  }
+  /*Header mit en flex pour que les éléments soient en colonne */
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  header h1 {
+    text-align: center;
+  }
+
+  #logo {
+    max-width: 320px;
+    max-height: 208px;
+    padding-left: 87px;
+  }
+
+  /* menu mobile */
+  /* faire les traits en noir */
+  .trait {
+    background: yellow;
+    width: 30px;
+    height: 2px;
+    margin-bottom: 10px;
+    transition: 0.2s;
+  }
+
+  /* background pour le label */
+  label {
+    background-color: black;
+    width: 30px;
+    height: 26px;
+    display: block;
+  }
+
+  /*Translation rotation et transition du 1er trait */
+  #maCheckbox:checked ~ label .trait:nth-of-type(1) {
+    transform: translateY(12px) rotate(45deg);
+    transition: 0.2s;
+  }
+
+  /*Translation rotation et transition du 3eme trait */
+  #maCheckbox:checked ~ label .trait:nth-of-type(3) {
+    transform: translateY(-12px) rotate(-45deg);
+    transition: 0.2s;
+  }
+
+  /*Transition du 2eme trait */
+  #maCheckbox:checked ~ label .trait:nth-of-type(2) {
+    transform: scale(0);
+    transition: 0.2s;
+  }
+
+  /*Position transiton et translation du nav */
+  nav {
+    display: flex;
+    position: absolute;
+    margin-top: 1.6rem;
+    margin-left: 0.5rem;
+    width: fit-content;
+    list-style-type: none;
+    transform: translateX(-200%);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.005, 1);
+  }
+
+  /*Mettre en colonne le menu */
+  nav ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #maCheckbox:checked ~ nav {
+    transform: translateX(0);
+  }
+
+  /*Rendre invisible le checkbox */
+  #maCheckbox {
+    display: none;
+  }
+
+  /*Changement de la couleur du texte du nav et on enleve le text decoration du */
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* Direction principale de la page est en colonne */
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  /*taille du font des paragraphes et l'espace entre les lignes*/
+  p {
+    font-size: 20px;
+    line-height: 35px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  /* ajout d'espace en bas des  h2 et h3 */
+  h2,
+  h3 {
+    padding: 10px;
+  }
+
+  /*taille maximale des images */
+  .images {
+    max-width: 500px;
+    max-height: 710px;
+    width: 75%;
+  }
+
+  /*alignement du conteneur 1 */
+  #serie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: yellow dotted 3px;
+    margin-bottom: 50px;
+  }
+
+  /*alignement du conteneur 2 */
+  #film {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: yellow dotted 3px;
+    margin-bottom: 50px;
+  }
+
+  /*alignement du conteneur 3*/
+  #jeu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: yellow dotted 3px;
+    margin-bottom: 50px;
+  }
+
+  /*alignement du conteneur 4*/
+  #mention {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: yellow dotted 3px;
+    margin-bottom: 50px;
+  }
+  /*alignement du footer */
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+/* version desktop*/
+@media (width>500px) {
+  /*background du body */
+  body {
+    background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url("images/batman_background.jpg");
+    color: white;
+  }
+
+  /* ajout d'espace en bas des  h2 et h3 */
+  h2,
+  h3 {
+    padding: 10px;
+  }
+
+  /*taille du font des paragraphes et l'espace entre les lignes*/
+  p {
+    font-size: 20px;
+    line-height: 35px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .zones{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /*conteneur pour mettre la page en display grid */
+  #conteneur {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 550px 550px;
+    grid-gap: 10px;
+  
+  /*taille du logo */
+  }
+  #logo {
+    max-width: 320px;
+    max-height: 208px;
+    
+  }
+
+  /*taille maximale des images */
+  .images {
+    max-width: 200px;
+    max-height: 410px;
+    width: 75%;
+  }
+  /*grid sur le header*/
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  /*menu pour la version desktop */
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    order: 2;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  ul li {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /*Rendre invisible le checkbox */
+  #maCheckbox {
+    display: none;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  /*grid pour le conteneur 1 série */
+  #serie {
+    grid-column-start: 1 ;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: yellow dotted 3px;
+    padding-bottom: 55px;
+  }
+
+  /*grid pour le conteneur 2 film */
+  #film{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: yellow dotted 3px;
+  }
+  /*grid pour le conteneur 3 jeu */
+  #jeu{
+    grid-column-start: 1 ;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: yellow dotted 3px;
+  }
+  /*grid pour le conteneur 4 mention honorable */
+  #mention{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: yellow dotted 3px;
+  }
+  /*alignement du footer */
+  footer{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 20px;
+    
+  }
+}
